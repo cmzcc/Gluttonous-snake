@@ -7,7 +7,7 @@
 using namespace std;
 random_device rd;
 mt19937 gen(rd());
-//¶¨ÒåËæ»úÊı·Ö²¼
+//å®šä¹‰éšæœºæ•°åˆ†å¸ƒ
 uniform_int_distribution<> disx(1, 799); 
 uniform_int_distribution<> disy(1, 599);
 
@@ -65,9 +65,9 @@ public:
 	}
     void getkey()
     {
-        if (_kbhit()) // ¼ì²âÊÇ·ñÓĞ°´¼ü°´ÏÂ
+        if (_kbhit()) // æ£€æµ‹æ˜¯å¦æœ‰æŒ‰é”®æŒ‰ä¸‹
         {
-            switch (_getch()) // »ñÈ¡°´ÏÂµÄ¼üÖµ
+            switch (_getch()) // è·å–æŒ‰ä¸‹çš„é”®å€¼
             {
             case 'a':
                 if (dir != RIGHT)
@@ -117,7 +117,7 @@ public:
             coor[i].y = prevY;
             prevX = prev2X;
             prevY = prev2Y;
-        }//½«ÉßÍ·µÄÎ»ÖÃ¼Ì³Ğ¸øÏÂÒ»¸öÉßÎ²µÄÎ»ÖÃ£¬ÒÔ´ËÀàÍÆ
+        }//å°†è›‡å¤´çš„ä½ç½®ç»§æ‰¿ç»™ä¸‹ä¸€ä¸ªè›‡å°¾çš„ä½ç½®ï¼Œä»¥æ­¤ç±»æ¨
 
         switch (dir)
         {
@@ -153,11 +153,11 @@ public:
         else if (coor[0].y < 0)
             coor[0].y = height - 1;
 
-        for (int i = 1; i < size; i++)//Èç¹ûÉßÍ·µÄÎ»ÖÃÓëÎ²°ÍµÄÈÎÒâÎ»ÖÃ´¥Åö£¬Ôògameover
+        for (int i = 1; i < size; i++)//å¦‚æœè›‡å¤´çš„ä½ç½®ä¸å°¾å·´çš„ä»»æ„ä½ç½®è§¦ç¢°ï¼Œåˆ™gameover
             if ((abs(coor[0].x - coor[i].x) <= r) && (abs(coor[0].y - coor[i].y)<=r))
                 gameover = true;
       
-        if ((abs(coor[0].x - fruitx) <= fruitr)&&(abs(coor[0].y-fruity)<=fruitr))//³Ôµ½Ë®¹ûºóÎ²°Í³¤¶È£«1
+        if ((abs(coor[0].x - fruitx) <= fruitr)&&(abs(coor[0].y-fruity)<=fruitr))//åƒåˆ°æ°´æœåå°¾å·´é•¿åº¦ï¼‹1
         {
             score += 10;
             fruitx = disx(gen);
@@ -165,11 +165,11 @@ public:
             size++;
         }
     }
-    //´òÓ¡ÌáÊ¾ĞÅÏ¢
+    //æ‰“å°æç¤ºä¿¡æ¯
     void Tip()
     {
 	static TCHAR str[64];
-	_stprintf_s(str, _T("µ±Ç°µÃ·ÖÎª:%d"), score);
+	_stprintf_s(str, _T("å½“å‰å¾—åˆ†ä¸º:%d"), score);
 	settextcolor(RGB(225, 175, 45));
 	outtextxy(0, 0, str);
     }
